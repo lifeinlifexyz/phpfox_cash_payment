@@ -1,0 +1,33 @@
+{
+  "id": "CM_CashPayment",
+  "alias": "cashpayment",
+  "name": "Cash Payment",
+  "version": "1.0.0",
+  "icon": "",
+  "vendor": "<a href=\"//codemake.org\" target=\"_blank\">CodeMake.Org</a> - See all our products <a href=\"//store.phpfox.com/techie/u/ecodemaster\" target=_new>HERE</a> - contact us at: support@codemake.org",
+  "settings": {
+    "cm_cashpayment_enabled": {
+      "info": "Cash Payment Enabled",
+      "type": "input:radio",
+      "value": 1,
+      "js_variable": true
+    }
+  },
+  "user_group_settings": {
+    "cashpayment.can_pay_with_cash": {
+      "info": "Can pay with cash?",
+      "type": "input:radio",
+      "value": {
+        "1" : "1",
+        "2" : "1",
+        "3" : "0",
+        "4" : "1",
+        "5" : "0"
+      },
+      "options": {
+        "yes": "Yes",
+        "no": "No"
+      }
+    }
+  }
+}
