@@ -3,17 +3,18 @@
 $oInstaller = new \Core\App\Installer();
 $oInstaller->onInstall(function() use ($oInstaller){
 
-//    $oInstaller->db->query('CREATE TABLE IF NOT EXISTS `' . Phpfox::getT('cashpayment_payments') . '` (
-//      `question_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-//      `max_rate` int(2) unsigned NOT NULL,
-//      `m_connection` varchar(75) NOT NULL DEFAULT \'\',
-//      `question` varchar(500) NOT NULL,
-//      `rating` varchar(10) NOT NULL DEFAULT \'0\',
-//      `count` varchar(10) NOT NULL DEFAULT \'0\',
-//      `is_active` tinyint(1) NOT NULL DEFAULT \'0\',
-//      PRIMARY KEY `question_id` (`question_id`),
-//      KEY `is_active` (`is_active`)
-//    )');
+    $oInstaller->db->query('CREATE TABLE IF NOT EXISTS `' . Phpfox::getT('cashpayment_payments') . '` (
+      `payment_id` bigint(30) NOT NULL AUTO_INCREMENT,
+      `seller_id` int(11) NOT NULL,
+      `buyer_id` int(11) NOT NULL,
+      `item_name` varchar(300) NOT NULL,
+      `item_number` varchar(300) NOT NULL,
+      `currency_code` varchar(5) NOT NULL,
+      `return_url` varchar(200) NOT NULL,
+      `amount` int(15) NOT NULL,
+      PRIMARY KEY (`payment_id`),
+      KEY `seller_id` (`seller_id`,`buyer_id`)
+    ) AUTO_INCREMENT=10000 ;');
 
     if (!$oInstaller->db->select('count(*)')->from(Phpfox::getT('api_gateway'))->count()) {
         $oInstaller->db->insert(Phpfox::getT('api_gateway'), [
