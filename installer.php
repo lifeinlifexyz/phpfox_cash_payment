@@ -12,8 +12,11 @@ $oInstaller->onInstall(function() use ($oInstaller){
       `currency_code` varchar(5) NOT NULL,
       `return_url` varchar(200) NOT NULL,
       `amount` int(15) NOT NULL,
+      `time_stamp` INT( 12 ) NULL DEFAULT NULL ,
+      `status` VARCHAR( 5 ) NOT DEFAULT \'pending\'
       PRIMARY KEY (`payment_id`),
       KEY `seller_id` (`seller_id`,`buyer_id`)
+      KEY  `status` (`status`)
     ) AUTO_INCREMENT=10000 ;');
 
     if (!$oInstaller->db->select('count(*)')->from(Phpfox::getT('api_gateway'))->count()) {

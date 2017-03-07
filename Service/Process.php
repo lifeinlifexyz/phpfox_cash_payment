@@ -31,6 +31,8 @@ class Process extends \Phpfox_Service
                 'currency_code' => $oClean->clean($aVal['currency_code'], 3),
                 'return_url' => $oClean->clean($aVal['return'], 200),
                 'amount' => $oClean->clean($aVal['amount'], 15),
+                'time_stamp' => PHPFOX_TIME,
+                'status' => 'pending',
             ]);
     }
 
