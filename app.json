@@ -5,13 +5,8 @@
   "version": "1.0.0",
   "icon": "",
   "vendor": "<a href=\"//codemake.org\" target=\"_blank\">CodeMake.Org</a> - See all our products <a href=\"//store.phpfox.com/techie/u/ecodemaster\" target=_new>HERE</a> - contact us at: support@codemake.org",
-  "settings": {
-    "cm_cashpayment_enabled": {
-      "info": "Cash Payment Enabled",
-      "type": "input:radio",
-      "value": 1,
-      "js_variable": true
-    }
+  "admincp_menu": {
+    "Settings": "cashpayment.settings"
   },
   "user_group_settings": {
     "cashpayment.can_pay_with_cash": {
