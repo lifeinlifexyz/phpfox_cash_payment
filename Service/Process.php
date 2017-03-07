@@ -8,10 +8,10 @@ class Process extends \Phpfox_Service
 {
     protected $_sTable = 'cashpayment_payments';
 
-    public function setStatus($sStatus, $iId)
+    public function setStatus($iId, $sStatus)
     {
         return $this->database()->update(\Phpfox::getT($this->_sTable),
-            ['`status`' => $sStatus], '`tr_number` = ' . (int) $iId);
+            ['`status`' => $sStatus], '`payment_id` = ' . (int) $iId);
     }
 
     public function delete($iId)
@@ -25,7 +25,7 @@ class Process extends \Phpfox_Service
         return $this->database()
             ->insert(Phpfox::getT($this->_sTable), [
                 'seller_id' => (int) $aVal['seller_id'],
-                'buyer_id' => (int) $aVal['buyer_id'],
+                'user_id' => (int) $aVal['buyer_id'],
                 'item_name' => $oClean->clean($aVal['item_name'], 300),
                 'item_number' => $oClean->clean($aVal['item_number'], 300),
                 'currency_code' => $oClean->clean($aVal['currency_code'], 3),

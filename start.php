@@ -10,6 +10,7 @@
         'cashpayment.admincp.settings' => 'Apps\CM_CashPayment\Controller\Admin\Settings',
         'cashpayment.admincp.payments' => 'Apps\CM_CashPayment\Controller\Admin\Payments',
         'cashpayment.buy' => 'Apps\CM_CashPayment\Controller\Buy',
+        'cashpayment.endorse' => 'Apps\CM_CashPayment\Controller\Endorse',
     ])
     ->addAliasNames('cashpayment', 'CM_CashPayment')
     ->addTemplateDirs([
@@ -25,4 +26,5 @@ group('/cashpayment/', function(){
     route('setting/save', 'cashpayment.admincp.settings');
     route('buy', 'cashpayment.buy');
     route('info', 'cashpayment.buy');
+    route('endorse', 'cashpayment.endorse');
 });

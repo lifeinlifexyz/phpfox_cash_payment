@@ -6,7 +6,7 @@ $oInstaller->onInstall(function() use ($oInstaller){
     $oInstaller->db->query('CREATE TABLE IF NOT EXISTS `' . Phpfox::getT('cashpayment_payments') . '` (
       `payment_id` bigint(30) NOT NULL AUTO_INCREMENT,
       `seller_id` int(11) NOT NULL,
-      `buyer_id` int(11) NOT NULL,
+      `user_id` int(11) NOT NULL,
       `item_name` varchar(300) NOT NULL,
       `item_number` varchar(300) NOT NULL,
       `currency_code` varchar(5) NOT NULL,

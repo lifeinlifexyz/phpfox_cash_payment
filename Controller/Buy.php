@@ -43,7 +43,7 @@ class Buy extends \Phpfox_Component
                 $iId = Phpfox::getService('cashpayment.proccess')->add($aVals);
                 $this->url()->send('cashpayment.info', ['id' => $iId]);
             } else {
-                $this->url()->send($this->request()->getServer('HTTP_REFERER', [], _p('Failed')));
+                $this->url()->send($this->request()->getServer('HTTP_REFERER'), [], _p('Failed'));
             }
         } else {
 
