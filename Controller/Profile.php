@@ -1,18 +1,18 @@
 <?php
 
-namespace Apps\CM_CashPayment\Controller\Admin;
+namespace Apps\CM_CashPayment\Controller;
 
 
 use Phpfox;
 use Phpfox_Error;
 use Phpfox_Plugin;
 
-class Payments extends \Phpfox_Component
+class Profile extends \Phpfox_Component
 {
 
     public function process()
     {
-        Phpfox::isAdmin(true);
+        Phpfox::isUser(true);
 
         $aSearchFields = array(
             'type' => 'cashpayment',
@@ -28,7 +28,7 @@ class Payments extends \Phpfox_Component
                 'sort' => [
                     'latest' => ['cp.payment_id', _p('Latest')],
                 ],
-                'show' => [21, 45, 100, 150, 255, 500]
+                'show' => [12, 15, 18, 21]
             ]
         );
 
@@ -41,6 +41,8 @@ class Payments extends \Phpfox_Component
             'table' => Phpfox::getT('cashpayment_payments'),
             'hide_view' => []
         ];
+
+        $this->search()->setCondition('seller_id', Phpfox::getUserId());
 
         $this->search()->setContinueSearch(true);
         $this->search()->browse()->params($aBrowseParams)->execute();
@@ -56,8 +58,9 @@ class Payments extends \Phpfox_Component
             ->setTitle(_p('Payments'))
             ->setBreadCrumb(_p('Payments'))
             ->assign([
-                'aPayments' => $this->search()->browse()->getRows()
-            ]);
+            'aPayments' => $this->search()->browse()->getRows()
+        ]);
+
 
     }
 

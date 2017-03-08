@@ -5,12 +5,14 @@
         'cashpayment.proccess' => '\Apps\CM_CashPayment\Service\Process',
         'cashpayment' => '\Apps\CM_CashPayment\Service\CashPayment',
         'cashpayment.browse' => '\Apps\CM_CashPayment\Service\Browse',
+        'cashpayment.callback' => '\Apps\CM_CashPayment\Service\Callback',
     ])
     ->addComponentNames('controller', [
         'cashpayment.admincp.settings' => 'Apps\CM_CashPayment\Controller\Admin\Settings',
         'cashpayment.admincp.payments' => 'Apps\CM_CashPayment\Controller\Admin\Payments',
         'cashpayment.buy' => 'Apps\CM_CashPayment\Controller\Buy',
         'cashpayment.endorse' => 'Apps\CM_CashPayment\Controller\Endorse',
+        'cashpayment.profile' => 'Apps\CM_CashPayment\Controller\Profile',
     ])
     ->addAliasNames('cashpayment', 'CM_CashPayment')
     ->addTemplateDirs([
@@ -22,9 +24,16 @@ group('/admincp/cashpayment/', function(){
     route('payments', 'cashpayment.admincp.payments');
 });
 
+defined('CM_CASH_PAYMENT_ACTIVE') or define('CM_CASH_PAYMENT_ACTIVE', Phpfox::getService('cashpayment')->isActive());
+
 group('/cashpayment/', function(){
     route('setting/save', 'cashpayment.admincp.settings');
-    route('buy', 'cashpayment.buy');
-    route('info', 'cashpayment.buy');
-    route('endorse', 'cashpayment.endorse');
+
+    if (CM_CASH_PAYMENT_ACTIVE) {
+        route('buy', 'cashpayment.buy');
+        route('info', 'cashpayment.buy');
+        route('endorse', 'cashpayment.endorse');
+        route('profile', 'cashpayment.profile');
+    }
+
 });

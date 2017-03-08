@@ -17,4 +17,17 @@ class CashPayment extends \Phpfox_Service
            ->get();
     }
 
+    public function isActive()
+    {
+
+        $aData = cache()->get('cashpayment_data');
+
+        if (empty($aData)) {
+            $aData = $this->database()->select('*')->from(Phpfox::getT('api_gateway'))->where('gateway_id = \'cashpayment\'')->get();
+            cache()->set('cashpayment_data', $aData);
+        }
+
+        return $aData['is_active'];
+    }
+
 }

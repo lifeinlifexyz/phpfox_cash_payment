@@ -20,6 +20,7 @@ class Settings extends \Phpfox_Component
         {
             if (Phpfox::getService('api.gateway.process')->update($aGateway['gateway_id'], $aVals))
             {
+                cache()->del('cashpayment_data');
                 $this->url()->send('admincp.app',
                     [
                         'id' => 'CM_CashPayment',

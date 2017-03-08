@@ -8,7 +8,6 @@ defined('PHPFOX') or exit('NO DICE!');
     </div>
 
     {if count($aPayments)}
-    {if !PHPFOX_IS_AJAX}
     <table>
         <thead>
         <tr>
@@ -23,7 +22,6 @@ defined('PHPFOX') or exit('NO DICE!');
         </tr>
         </thead>
         <tbody>
-        {/if}
         {foreach from=$aPayments item=aItem}
         <tr>
             <td>{$aItem.payment_id}</td>
@@ -42,11 +40,8 @@ defined('PHPFOX') or exit('NO DICE!');
             </td>
         </tr>
         {/foreach}
-        {if !PHPFOX_IS_AJAX}
         </tbody>
     </table>
-    {/if}
-    {pager}
     {else}
     <hr>
     <p class="table">{_p('No payments found')}</p>

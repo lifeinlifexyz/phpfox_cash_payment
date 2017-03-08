@@ -11,6 +11,8 @@ class Endorse extends \Phpfox_Component
 {
     public function process()
     {
+        Phpfox::isUser(true);
+
         $iId = $this->request()->getInt('id');
 
         if (!($aPayment = Phpfox::getService('cashpayment')->get($iId))) {
