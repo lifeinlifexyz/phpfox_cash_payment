@@ -23,7 +23,7 @@ class Profile extends \Phpfox_Component
                     'action' => $this->url()->makeUrl('profile.cashpayment'),
                     'default_value' => _p('Search payments'),
                     'name' => 'search',
-                    'field' => ['cp.item_name', 'cp.item_number', 'cp.payment_id']
+                    'field' => ['`cp`.`item_name`', '`cp`.`item_number`', '`cp`.`payment_id`', '`cp`.`status`', '`cp`.`amount`']
                 ],
                 'sort' => [
                     'latest' => ['cp.payment_id', _p('Latest')],
@@ -42,7 +42,7 @@ class Profile extends \Phpfox_Component
             'hide_view' => []
         ];
 
-        $this->search()->setCondition('seller_id', Phpfox::getUserId());
+        $this->search()->setCondition(' AND `cp`.`seller_id` = ' . Phpfox::getUserId());
 
         $this->search()->setContinueSearch(true);
         $this->search()->browse()->params($aBrowseParams)->execute();

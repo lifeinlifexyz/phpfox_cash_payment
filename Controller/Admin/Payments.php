@@ -23,7 +23,7 @@ class Payments extends \Phpfox_Component
                     'action' => $this->url()->makeUrl('admincp.cashpayment.payments'),
                     'default_value' => _p('Search payments'),
                     'name' => 'search',
-                    'field' => ['cp.item_name', 'cp.item_number', 'cp.payment_id']
+                    'field' => ['cp.item_name', 'cp.item_number', 'cp.payment_id', 'cp.status', '`cp`.`amount`']
                 ],
                 'sort' => [
                     'latest' => ['cp.payment_id', _p('Latest')],
