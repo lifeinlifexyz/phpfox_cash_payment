@@ -27,7 +27,11 @@ class Endorse extends \Phpfox_Component
         $aPayment['status'] = 'completed';
         $this->request()->send(Phpfox::getLib('gateway')->url('cashpayment'), $aPayment);
 
-        $this->url()->send($this->request()->getServer('HTTP_REFERER'), [], _p('Payment Complete'));
+        if ($this->request()->get('req3') == 'profile') {
+            $this->url()->send('profile.cashpayment' , [], _p('Payment Complete'));
+        } else {
+            $this->url()->send('admincp.app' , ['id' => 'CM_CashPayment'], _p('Payment Complete'));
+        }
     }
 
     /**

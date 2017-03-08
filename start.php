@@ -28,11 +28,12 @@ defined('CM_CASH_PAYMENT_ACTIVE') or define('CM_CASH_PAYMENT_ACTIVE', Phpfox::ge
 
 group('/cashpayment/', function(){
     route('setting/save', 'cashpayment.admincp.settings');
+    route('endorse', 'cashpayment.endorse');
 
     if (CM_CASH_PAYMENT_ACTIVE) {
         route('buy', 'cashpayment.buy');
         route('info', 'cashpayment.buy');
-        route('endorse', 'cashpayment.endorse');
+        route('endorse/profile', 'cashpayment.endorse');
         route('profile', 'cashpayment.profile');
     }
 

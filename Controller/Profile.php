@@ -20,7 +20,7 @@ class Profile extends \Phpfox_Component
             'search_tool' => [
                 'table_alias' => 'cp',
                 'search' => [
-                    'action' => $this->url()->makeUrl('admincp.cashpayment.payments'),
+                    'action' => $this->url()->makeUrl('profile.cashpayment'),
                     'default_value' => _p('Search payments'),
                     'name' => 'search',
                     'field' => ['cp.item_name', 'cp.item_number', 'cp.payment_id']

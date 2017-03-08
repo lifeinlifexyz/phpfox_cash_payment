@@ -25,7 +25,7 @@ defined('PHPFOX') or exit('NO DICE!');
             <div class="cm-table-cell">{$aItem.status}</div>
             <div class="cm-table-cell">
                 {if $aItem.status != 'completed'}
-                <a href="{url link='cashpayment.endorse' id=$aItem.payment_id}" class="btn btn-small btn-success" title="{_p('Endorse')}">
+                <a href="{url link='cashpayment.endorse.profile' id=$aItem.payment_id}" class="btn btn-small btn-success" title="{_p('Endorse')}">
                     <i class="fa fa-check"></i>
                 </a>
                 {/if}

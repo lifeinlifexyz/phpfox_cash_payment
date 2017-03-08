@@ -13,13 +13,13 @@ use Phpfox_Plugin;
 class Callback extends \Phpfox_Service
 {
 
-//    public function getProfileLink()
-//    {
-//        if(!CM_CASH_PAYMENT_ACTIVE) {
-//            return false;
-//        }
-//        return 'profile.cashpayment';
-//    }
+    public function getProfileLink()
+    {
+        if(!CM_CASH_PAYMENT_ACTIVE) {
+            return false;
+        }
+        return 'profile.cashpayment';
+    }
 
     public function getProfileMenu($aUser)
     {
