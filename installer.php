@@ -19,7 +19,7 @@ $oInstaller->onInstall(function() use ($oInstaller){
       KEY  `status` (`status`)
     ) AUTO_INCREMENT=10000 ;');
 
-    if (!$oInstaller->db->select('count(*)')->from(Phpfox::getT('api_gateway'))->count()) {
+    if (!$oInstaller->db->select('count(*)')->from(Phpfox::getT('api_gateway'))->where('gateway_id = \'cashpayment\'')->count()) {
         $oInstaller->db->insert(Phpfox::getT('api_gateway'), [
             'gateway_id' => 'cashpayment',
             'title' => 'Cash payment',
