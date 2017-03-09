@@ -47,13 +47,6 @@ class Profile extends \Phpfox_Component
         $this->search()->setContinueSearch(true);
         $this->search()->browse()->params($aBrowseParams)->execute();
 
-        Phpfox::getLib('pager')->set([
-            'page' => $this->search()->getPage(),
-            'size' => $this->search()->getDisplay(),
-            'count' => $this->search()->getCount()
-        ]);
-
-
         $this->template()
             ->setTitle(_p('Payments'))
             ->setBreadCrumb(_p('Payments'))
