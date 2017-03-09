@@ -3,7 +3,7 @@
   "alias": "cashpayment",
   "name": "Cash Payment",
   "version": "1.0.0",
-  "icon": "",
+  "icon": "https://raw.githubusercontent.com/codemakeorg/logo/master/cashpayment.png",
   "vendor": "<a href=\"//codemake.org\" target=\"_blank\">CodeMake.Org</a> - See all our products <a href=\"//store.phpfox.com/techie/u/ecodemaster\" target=_new>HERE</a> - contact us at: support@codemake.org",
   "admincp_route": "/admincp/cashpayment/payments",
   "admincp_menu": {
