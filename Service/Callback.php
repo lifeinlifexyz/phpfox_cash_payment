@@ -12,6 +12,7 @@ use Phpfox_Plugin;
  */
 class Callback extends \Phpfox_Service
 {
+    protected $_sTable = 'cashpayment_payments';
 
     public function getProfileLink()
     {

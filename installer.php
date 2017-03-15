@@ -5,17 +5,17 @@ $oInstaller->onInstall(function() use ($oInstaller){
 
     $oInstaller->db->query('CREATE TABLE IF NOT EXISTS `' . Phpfox::getT('cashpayment_payments') . '` (
       `payment_id` bigint(30) NOT NULL AUTO_INCREMENT,
-      `seller_id` int(11) NOT NULL,
-      `user_id` int(11) NOT NULL,
-      `item_name` varchar(300) NOT NULL,
-      `item_number` varchar(300) NOT NULL,
-      `currency_code` varchar(5) NOT NULL,
-      `return_url` varchar(200) NOT NULL,
-      `amount` int(15) NOT NULL,
+      `seller_id` int(11) NOT NULL DEFAULT \'0\',
+      `user_id` int(11) NOT NULL DEFAULT \'0\',
+      `item_name` varchar(300) NOT NULL DEFAULT \'\',
+      `item_number` varchar(300) NOT NULL DEFAULT \'\',
+      `currency_code` varchar(5) NOT NULL DEFAULT \'\',
+      `return_url` varchar(200) NOT NULL DEFAULT \'\',
+      `amount` int(15) NOT NULL DEFAULT \'0\',
       `time_stamp` INT( 12 ) NULL DEFAULT NULL ,
-      `status` VARCHAR( 5 ) NOT DEFAULT \'pending\'
+      `status` VARCHAR( 15 ) NOT NULL DEFAULT \'pending\',
       PRIMARY KEY (`payment_id`),
-      KEY `seller_id` (`seller_id`,`buyer_id`)
+      KEY `seller_id` (`seller_id`,`user_id`),
       KEY  `status` (`status`)
     ) AUTO_INCREMENT=10000 ;');
 
