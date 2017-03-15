@@ -12,6 +12,7 @@
         'cashpayment.admincp.payments' => 'Apps\CM_CashPayment\Controller\Admin\Payments',
         'cashpayment.buy' => 'Apps\CM_CashPayment\Controller\Buy',
         'cashpayment.endorse' => 'Apps\CM_CashPayment\Controller\Endorse',
+        'cashpayment.decline' => 'Apps\CM_CashPayment\Controller\Decline',
         'cashpayment.profile' => 'Apps\CM_CashPayment\Controller\Profile',
     ])
     ->addAliasNames('cashpayment', 'CM_CashPayment')
@@ -29,11 +30,13 @@ defined('CM_CASH_PAYMENT_ACTIVE') or define('CM_CASH_PAYMENT_ACTIVE', Phpfox::ge
 group('/cashpayment/', function(){
     route('setting/save', 'cashpayment.admincp.settings');
     route('endorse', 'cashpayment.endorse');
+    route('decline', 'cashpayment.decline');
 
     if (CM_CASH_PAYMENT_ACTIVE) {
         route('buy', 'cashpayment.buy');
         route('info', 'cashpayment.buy');
         route('endorse/profile', 'cashpayment.endorse');
+        route('decline/profile', 'cashpayment.decline');
         route('profile', 'cashpayment.profile');
     }
 

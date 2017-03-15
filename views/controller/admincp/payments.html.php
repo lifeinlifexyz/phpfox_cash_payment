@@ -18,7 +18,7 @@ defined('PHPFOX') or exit('NO DICE!');
             <th>{_p('Amount')}</th>
             <th>{_p('User')}</th>
             <th>{_p('Status')}</th>
-            <th>{_p('Action')}</th>
+            <th style="min-width: 110px">{_p('Action')}</th>
         </tr>
         </thead>
         <tbody>
@@ -32,9 +32,13 @@ defined('PHPFOX') or exit('NO DICE!');
             <td>{$aItem|user:'':'':30}</td>
             <td>{$aItem.status}</td>
             <td>
-                {if $aItem.status != 'completed'}
+                {if $aItem.status == 'pending'}
                 <a href="{url link='cashpayment.endorse' id=$aItem.payment_id}" class="btn btn-small btn-success" title="{_p('Endorse')}">
                     <i class="fa fa-check"></i>
+                </a>
+
+                <a href="{url link='cashpayment.decline' id=$aItem.payment_id}" class="btn btn-small btn-warning" title="{_p('Decline')}">
+                    <i class="fa fa-undo"></i>
                 </a>
                 {/if}
             </td>
