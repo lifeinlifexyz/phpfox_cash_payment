@@ -1,0 +1,61 @@
+#cm-filter-admin-block .header_filter_holder .inline-block {
+    display: inline-block;
+    position: relative;
+    margin-bottom: 20px;
+    padding-right: 8px;
+}
+#cm-filter-admin-block a {
+    text-decoration: none !important;
+}
+
+#cm-filter-admin-block .header_filter_holder .btn {
+    background: #dddddd;
+    border-color: #d8d8d8;
+    color: #333333;
+    padding: 11px 10px;
+    font-size: 12px;
+    line-height: 1.3333333;
+}
+
+.cm-table-cell {
+    display: table-cell;
+    padding: 5px 10px;
+    border-bottom: 1px dashed #eee;
+}
+.cm-table-cell:first-child {
+    border-left: 1px solid #dadada;
+}
+.cm-table-cell:last-child {
+    border-right: 1px solid #dadada;
+}
+
+.cm-table-row {
+    display: table-row;
+    width: 100%;
+}
+.cm-table-row:nth-child(2n + 2) {
+    background: rgba(236, 251, 255, 0.58);
+}
+
+.cm-table-row.cm-table-head .cm-table-cell{
+    font-weight: bold;
+    padding: 21px 25px 22px 25px;
+    background: #f7f7f7;
+    color: #adadad;
+    border-bottom: 1px dashed transparent;
+    border-top: 1px solid #dadada;
+}
+
+.cm-table-row.cm-table-head .cm-table-cell:first-child {
+    border-top-left-radius: 3px;
+}
+.cm-table-row.cm-table-head .cm-table-cell:last-child {
+    border-top-right-radius: 3px;
+}
+
+.cm-table-row:hover .cm-table-cell {
+    background: #ecf9ff;
+}
+.cm-table-row:last-child .cm-table-cell {
+    border-bottom: 1px solid #dadada;
+}
