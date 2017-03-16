@@ -79,7 +79,7 @@ class Phpfox_Gateway_Api_CashPayment implements Phpfox_Gateway_Interface
 			$aForm['param']['amount'] = $this->_aParam['amount'];
 			return $aForm;
 		} else {
-			return [];
+			return false;
 		}
 	}
 
