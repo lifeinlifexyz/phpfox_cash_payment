@@ -14,6 +14,7 @@ $oInstaller->onInstall(function() use ($oInstaller){
       `amount` int(15) NOT NULL DEFAULT \'0\',
       `time_stamp` INT( 12 ) NULL DEFAULT NULL ,
       `status` VARCHAR( 15 ) NOT NULL DEFAULT \'pending\',
+      `comment` TEXT(1000) NOT NULL DEFAULT \'\',
       PRIMARY KEY (`payment_id`),
       KEY `seller_id` (`seller_id`,`user_id`),
       KEY  `status` (`status`)
