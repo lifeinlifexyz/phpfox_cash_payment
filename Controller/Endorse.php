@@ -18,8 +18,7 @@ class Endorse extends \Phpfox_Component
         if (!($aPayment = Phpfox::getService('cashpayment')->get($iId))) {
             return Phpfox_Error::display(_p('Payment is not found'));
         }
-
-        if ($aPayment['seller_id'] != Phpfox::getUserId() || !Phpfox::isAdmin()) {
+        if ($aPayment['seller_id'] != Phpfox::getUserId() && !Phpfox::isAdmin()) {
             return Phpfox_Error::display(_p('You do not have permission to access'));
         }
 
