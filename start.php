@@ -10,10 +10,15 @@
     ->addComponentNames('controller', [
         'cashpayment.admincp.settings' => 'Apps\CM_CashPayment\Controller\Admin\Settings',
         'cashpayment.admincp.payments' => 'Apps\CM_CashPayment\Controller\Admin\Payments',
-        'cashpayment.buy' => 'Apps\CM_CashPayment\Controller\Buy',
         'cashpayment.endorse' => 'Apps\CM_CashPayment\Controller\Endorse',
         'cashpayment.decline' => 'Apps\CM_CashPayment\Controller\Decline',
         'cashpayment.profile' => 'Apps\CM_CashPayment\Controller\Profile',
+    ])
+    ->addComponentNames('ajax', [
+        'cashpayment.ajax'        => '\Apps\CM_CashPayment\Ajax\Ajax',
+    ])
+    ->addComponentNames('block', [
+        'cashpayment.info' => 'Apps\CM_CashPayment\Block\Info',
     ])
     ->addAliasNames('cashpayment', 'CM_CashPayment')
     ->addTemplateDirs([
@@ -33,8 +38,7 @@ group('/cashpayment/', function(){
     route('decline', 'cashpayment.decline');
 
     if (CM_CASH_PAYMENT_ACTIVE) {
-        route('buy', 'cashpayment.buy');
-        route('info', 'cashpayment.buy');
+        route('info', 'cashpayment.info');
         route('endorse/profile', 'cashpayment.endorse');
         route('decline/profile', 'cashpayment.decline');
         route('profile', 'cashpayment.profile');
