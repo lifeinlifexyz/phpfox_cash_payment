@@ -1,6 +1,6 @@
 <?php
 
-if (Phpfox::getVersion() == '4.5.2') {
+if (version_compare(Phpfox::getVersion(), '4.5.2', '>=')) {
     require_once  PHPFOX_DIR_LIB_CORE . 'gateway' . PHPFOX_DS . 'api' . PHPFOX_DS . 'cashpayment.class.php';
     Phpfox::getLibContainer()->set('gateway.api.cashpayment', new \Phpfox_Gateway_Api_CashPayment());
 }

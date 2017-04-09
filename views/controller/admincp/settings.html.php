@@ -34,6 +34,28 @@ defined('PHPFOX') or exit('NO DICE!');
         </div>
         <div class="clear"></div>
     </div>
+    {if is_array($aForms.custom)}
+    {foreach from=$aForms.custom key=sFormField item=aCustom}
+    <div class="table form-group">
+        <div class="table_left">
+            {$aCustom.phrase}:
+        </div>
+        <div class="table_right">
+            {if (isset($aCustom.type) && $aCustom.type == 'textarea')}
+            <textarea name="val[setting][{$sFormField}]" cols="50" rows="8">{$aCustom.value|clean}</textarea>
+            {else}
+            <input type="text" name="val[setting][{$sFormField}]" id="title" value="{$aCustom.value|clean}" size="40" />
+            {/if}
+            {if !empty($aCustom.phrase_info)}
+            <div class="extra_info">
+                {$aCustom.phrase_info}
+            </div>
+            {/if}
+        </div>
+        <div class="clear"></div>
+    </div>
+    {/foreach}
+    {/if}
     <div class="table_clear">
         <input type="submit" value="{phrase var='api.update'}" class="button btn-primary" />
     </div>
