@@ -18,6 +18,8 @@ class Install extends App\App
      * @var array
      */
     private $_app_phrases = [];
+    public $vendor = '<a href="//codemake.org" target="_blank">CodeMake.Org</a> - See all our products <a href="//store.phpfox.com/techie/u/ecodemaster" target=_new>HERE</a> - contact us at: support@codemake.org';
+    public $store_id = '1764';
 
     /**
      *
@@ -62,7 +64,7 @@ class Install extends App\App
      */
     protected function setVersion()
     {
-        $this->version = '1.0.4';
+        $this->version = '1.1.2';
     }
 
     /**
@@ -115,5 +117,6 @@ class Install extends App\App
             _p("Settings") => "cashpayment.settings",
             _p("Payments") => "cashpayment.payments",
         ];
+        $this->icon = 'https://raw.githubusercontent.com/codemakeorg/logo/master/cashpayment.png';
     }
 }
