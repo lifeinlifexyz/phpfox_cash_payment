@@ -8,44 +8,47 @@ defined('PHPFOX') or exit('NO DICE!');
     </div>
 
     {if count($aPayments)}
-    <table>
-        <thead>
-        <tr>
-            <th>{_p('ID')}</th>
-            <th>{_p('Updated')}</th>
-            <th>{_p('Item name')}</th>
-            <th>{_p('Item number')}</th>
-            <th>{_p('Amount')}</th>
-            <th>{_p('User')}</th>
-            <th>{_p('Status')}</th>
-            <th style="min-width: 110px">{_p('Action')}</th>
-        </tr>
-        </thead>
-        <tbody>
-        {foreach from=$aPayments item=aItem}
-        <tr>
-            <td>{$aItem.payment_id}</td>
-            <td>{$aItem.time_stamp|convert_time}</td>
-            <td>{$aItem.item_name}</td>
-            <td>{$aItem.item_number}</td>
-            <td>{$aItem.currency_code|currency_symbol}{$aItem.amount|number_format:2}</td>
-            <td>{$aItem|user:'':'':30}</td>
-            <td>{$aItem.status}</td>
-            <td>
-                {if $aItem.status == 'pending'}
-                <a href="{url link='cashpayment.endorse' id=$aItem.payment_id}" class="btn btn-small btn-success" title="{_p('Endorse')}">
-                    <i class="fa fa-check"></i>
-                </a>
+    <div class="panel panel-default">
+        <table class="table table-admin">
+            <thead>
+            <tr>
+                <th>{_p('ID')}</th>
+                <th>{_p('Updated')}</th>
+                <th>{_p('Item name')}</th>
+                <th>{_p('Item number')}</th>
+                <th>{_p('Amount')}</th>
+                <th>{_p('User')}</th>
+                <th>{_p('Status')}</th>
+                <th style="min-width: 110px">{_p('Action')}</th>
+            </tr>
+            </thead>
+            <tbody>
+            {foreach from=$aPayments item=aItem}
+            <tr>
+                <td>{$aItem.payment_id}</td>
+                <td>{$aItem.time_stamp|convert_time}</td>
+                <td>{$aItem.item_name}</td>
+                <td>{$aItem.item_number}</td>
+                <td>{$aItem.currency_code|currency_symbol}{$aItem.amount|number_format:2}</td>
+                <td>{$aItem|user:'':'':30}</td>
+                <td>{$aItem.status}</td>
+                <td>
+                    {if $aItem.status == 'pending'}
+                    <a href="{url link='cashpayment.endorse' id=$aItem.payment_id}" class="btn btn-small btn-success" title="{_p('Endorse')}">
+                        <i class="fa fa-check"></i>
+                    </a>
 
-                <a href="{url link='cashpayment.decline' id=$aItem.payment_id}" class="btn btn-small btn-warning" title="{_p('Decline')}">
-                    <i class="fa fa-undo"></i>
-                </a>
-                {/if}
-            </td>
-        </tr>
-        {/foreach}
-        </tbody>
-    </table>
+                    <a href="{url link='cashpayment.decline' id=$aItem.payment_id}" class="btn btn-small btn-warning" title="{_p('Decline')}">
+                        <i class="fa fa-undo"></i>
+                    </a>
+                    {/if}
+                </td>
+            </tr>
+            {/foreach}
+            </tbody>
+        </table>
+    </div>
+
     {else}
     <hr>
     <p class="table">{_p('No payments found')}</p>
