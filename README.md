@@ -1,3 +1,7 @@
+<h2>Paid Support:</h2>       
+<p>The phpfox apps and themes by codemake are provided under the MIT license with no commercial support or liability. 
+<a href="mailto:phpfox@lifeinlife.xyz">phpfox@lifeinlife.xyz</a> also provides commercial support and professional customisation services.</p>
+
 <h2>PHPFox Cash Payment:</h2>
 This system is for cash payment gateway. This module is useful for getting money in cash. With the help of this module members can confirm payments of their clients in your phpfox web site.
 
